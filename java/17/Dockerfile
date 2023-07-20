@@ -8,6 +8,9 @@ LABEL       org.opencontainers.image.licenses=MIT
 RUN         apt update -y \
 						&& apt install -y curl lsof ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 libfreetype6 \
 						&& useradd -d /home/container -m container
+						&& apk add --no-cache tzdata
+
+ENV TZ=America/Sao_Paulo
 
 USER        container
 ENV         USER=container HOME=/home/container
